@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Service</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-label>
+          Customer Service
+        </ion-label>
+        <ion-icon name="add-circle-outline" (click)="show('service')" slot="end" color="primary"></ion-icon>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let service of services">
+          <ion-label>{{service.service_data}}</ion-label>
+          <ion-icon (click)="deleteService(service.service_id)" name="trash" slot="end" color="danger"></ion-icon>
+        </ion-item>
+        <ion-item id="service">
+          <ion-label position="floating">Add Service</ion-label>
+          <ion-input name="service" [(ngModel)]="service"></ion-input>
+          <ion-button slot="end" (click)="addService()">Add</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-label>
+          Custom Messages
+        </ion-label>
+        <ion-icon name="add-circle-outline" (click)="show('message')" slot="end" color="primary"></ion-icon>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let message of messages">
+          <ion-label>{{message.text_data}}</ion-label>
+          <ion-icon (click)="deleteMessage(message.text_id)" name="trash" slot="end" color="danger"></ion-icon>
+        </ion-item>
+        <ion-item id="message">
+          <ion-label position="floating">Add Message</ion-label>
+          <ion-input name="message" [(ngModel)]="message"></ion-input>
+          <ion-button slot="end" (click)="addMessage()">Add</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

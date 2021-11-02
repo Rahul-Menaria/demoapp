@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-button slot="end" (click)="clear()" shape="round" fill="outline">
+        <ion-icon name="trash-outline" ></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <ion-card>
+      <ion-card-content id="image">
+        <ion-img [src]="'data:image/png;base64, '+image_url"></ion-img>
+        <ion-chip id="defaultText">Click Here to select defualt Text</ion-chip>
+        <ion-select id="select" (click)="onSelect()">
+          <ion-select-option *ngFor="let template of templates">{{template.text_data}}</ion-select-option>
+        </ion-select>
+        <h4 contenteditable="true" value="Hello">Hello</h4>
+      </ion-card-content>
+    </ion-card>
+    <ion-button (click)="downloadImage()">
+      <ion-icon name="cloud-download-outline"></ion-icon> Download Image</ion-button>
+  </div>
+  <div id="download">
+    <img #canvas>
+    <a #downloadLink></a>
+  </div>
+</ion-content>

@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Add a New Customer
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+        <div class="grid">
+          <ion-item>
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input type="text" name="first_name" [(ngModel)]="form.first_name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label type="text" position="floating">Last Name</ion-label>
+            <ion-input name="last_name" [(ngModel)]="form.last_name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Last Visit Date</ion-label>
+            <ion-input type="Date" name="last_visit" [(ngModel)]="form.last_visit"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Anniversary</ion-label>
+            <ion-input type="Date" name="anniversary" [(ngModel)]="form.anniversary"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Service
+            </ion-label>
+            <ion-select type="text" name="service" [(ngModel)]="form.service">
+              <ion-select-option value="facial" color="black">Facial</ion-select-option>
+              <ion-select-option value="oil massage">Oil Massage</ion-select-option>
+              <ion-select-option value="head massage">Head Massage</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Payment Status</ion-label>
+            <ion-input type="text" name="payment" [(ngModel)]="form.payment"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Profile Picture</ion-label>
+            <div class="img">
+              <ion-input type="file" (change)="onSelectFile($event)" accept="image/*"></ion-input>
+            </div>
+          </ion-item>
+
+          <div>
+            <img [src]="image_url" *ngIf="image_url">
+          </div>
+          
+          <!-- <ion-item>
+            <ion-label position="floating">Custom Message</ion-label>
+            <ion-select type="text" name="custom_message">
+              <ion-select-option value=""></ion-select-option>
+              <ion-select-option value=""></ion-select-option>
+              <ion-select-option value=""></ion-select-option>
+            </ion-select>
+          </ion-item> -->
+        </div>
+        
+          <ion-item>
+            <ion-label position="floating">Message</ion-label>
+            <ion-textarea name="message" [(ngModel)]="form.message"></ion-textarea>
+          </ion-item>
+
+        <ion-button slot="end" type="submit">Submit</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

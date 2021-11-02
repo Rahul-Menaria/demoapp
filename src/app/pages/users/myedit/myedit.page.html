@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Edits</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="grid">
+    <ion-card *ngFor="let template of templates">
+      <ion-card-content >
+        <ion-img [src]="'data:image/png;base64,'+template.template_name"></ion-img>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

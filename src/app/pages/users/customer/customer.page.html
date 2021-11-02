@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <div class="content">
+      <ion-title>Customer</ion-title>
+      <ion-searchbar (ionClear)="onClear()" (ionChange)="Search($event.target.value)" animated></ion-searchbar>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="grid">
+    <ion-card *ngFor="let customer of customers" (click)="select(customer)">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-text>
+            {{customer.first_name}}
+          </ion-text>
+
+          <ion-text>
+            {{customer.last_name}}
+          </ion-text>
+        </ion-card-title>
+
+        <ion-avatar>
+          <img [src]="'data:image/png;base64,'+customer.image_name">
+        </ion-avatar>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-card-subtitle class="main-content">
+          <span>Mostly Prefer: </span>
+          {{customer.service}}
+        </ion-card-subtitle>
+
+        <ion-text>{{customer.message}}</ion-text>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add" (click)="add()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

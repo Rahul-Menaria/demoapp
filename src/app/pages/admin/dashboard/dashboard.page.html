@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Welcome To Dashboard</ion-title>
+    <ion-button slot="end" fill="outline" (click)="logout()">
+      <ion-icon name="log-out"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>Add Category</ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Add Category</ion-label>
+        <ion-input type="text" name="category" [(ngModel)]="category"></ion-input>
+      </ion-item>
+      <ion-button (click)="addCategory()">Add</ion-button>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>Add Template</ion-card-header>
+    <div class="container">
+      <div class="wrapper">
+        <ion-item>
+          <ion-label position="floating">Bussiness Category</ion-label>
+          <ion-select [(ngModel)]="business_id1" name="business_id1">
+            <ion-select-option *ngFor="let business of business_category" value={{business.business_id}}>{{business.business_name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-input type="file" (change)="onSelectFile($event)" accept="image/*"></ion-input>
+        <ion-button (click)="onSubmit()">Upload</ion-button>
+      </div>
+      <img [src]="template_url" *ngIf="template_url">
+    </div>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>Add Default Message</ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Bussiness Category</ion-label>
+        <ion-select [(ngModel)]="business_id2" name="business_id2">
+          <ion-select-option *ngFor="let business of business_category" value={{business.business_id}}>{{business.business_name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Default Message</ion-label>
+        <ion-input type="text" name="Message" [(ngModel)]="Message"></ion-input>
+      </ion-item>
+      <ion-button (click)="addMessage()">Add</ion-button>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>Add Default Services</ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Bussiness Category</ion-label>
+        <ion-select [(ngModel)]="business_id3" name="business_id3">
+          <ion-select-option *ngFor="let business of business_category" value={{business.business_id}}>{{business.business_name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Default Services</ion-label>
+        <ion-input type="text" name="service" [(ngModel)]="service"></ion-input>
+      </ion-item>
+      <ion-button (click)="addService()">Add</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

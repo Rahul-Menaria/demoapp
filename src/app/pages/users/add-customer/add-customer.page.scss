@@ -1,0 +1,29 @@
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+
+  .img{
+    display: flex;
+    
+  }
+}
+ion-title{
+  color: #0a005f;
+}
+ion-card-title{
+  color: #0e0091;
+}
+ion-input{
+  color: #3f3f3f;
+}
+ion-select{
+  .text{
+    color: #2000aa;
+  }
+}
+@media(max-width: 550px) {
+  .grid{
+    grid-template-columns: 1fr;
+  }
+}

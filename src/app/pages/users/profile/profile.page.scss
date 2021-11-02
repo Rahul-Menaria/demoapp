@@ -1,0 +1,13 @@
+.grid{
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  img{
+    background-position: center;
+    background-size: cover;
+  }
+  .wrapper{
+    ion-input{
+      text-align: center;
+    }
+  }
+}

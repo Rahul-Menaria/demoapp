@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+    <ion-chip  slot="end">
+      <ion-label class="username">Welcome {{username}}</ion-label>
+    </ion-chip>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="grid">
+    <ion-card *ngFor="let template of templates">
+      <ion-card-content>
+        <ion-img [src]="'data:image/png;base64, '+template.template_name"></ion-img>
+        <ion-button color="light" (click)="edit(template.template_name)">Edit</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
